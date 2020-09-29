@@ -12,6 +12,7 @@ namespace Poo3
     /// Type Salarie
     /// </summary>
 
+    [Serializable()]
     public class Salarie
     {
 

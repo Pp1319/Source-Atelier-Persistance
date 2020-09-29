@@ -10,6 +10,7 @@ namespace Poo3
     /// <summary>
     /// Commercial est une spécialisation de salarié
     /// </summary>
+    [Serializable()]
     public class Commercial : Salarie
     {
         private decimal _chiffreAffaire;

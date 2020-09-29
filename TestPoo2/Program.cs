@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Soap;
 // using System.Linq;
@@ -13,8 +14,10 @@ namespace TestPoo2
     {
         static void Main(string[] args)
         {
-           TesterCollection();
+            TesterCollection();
             //TestCreateFile();
+            //Polymorphe1();
+
             
         }
             
@@ -28,9 +31,9 @@ namespace TestPoo2
                 TauxCS = 0.35m
             };
 
-            Console.WriteLine("Salaire commercial attendu {0} obtenu {1} assertion {2} ", 3275, com1.SalaireNet, 3275 == com1.SalaireNet);
-            Console.WriteLine("Détails : {0}", com1.ToString());
-            Console.ReadLine();
+            //Console.WriteLine("Salaire commercial attendu {0} obtenu {1} assertion {2} ", 3275, com1.SalaireNet, 3275 == com1.SalaireNet);
+            //Console.WriteLine("Détails : {0}", com1.ToString());
+            //Console.ReadLine();
         }
         static void TesterCollection()
         {
@@ -53,8 +56,20 @@ namespace TestPoo2
 
             };
             salaries.Add(sal3);
-            salaries.SaveTexte("");
-            
+            // salaries.SaveXML(salaries, "");
+            // salaries.SaveTexte("");
+            //salaries.SaveBinary(salaries,"");
+            salaries.SaveJson(salaries, "");
+            Salaries listeRetour = new Salaries();
+            //listeRetour.LoadBinary("");
+            //listeRetour.LoadXML(salaries, "");
+            //listeRetour.LoadTexte("");
+           // listeRetour.LoadJson(salaries, "");
+           
+          foreach(Salarie item in listeRetour)
+          {
+              Debug.WriteLine(item);
+          }
         }
        
                     /// <summary>
