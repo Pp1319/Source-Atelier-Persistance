@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Globalization;
+using System.Windows.Forms;
 
 [assembly: CLSCompliant(true)]
 namespace Poo3
@@ -15,6 +16,8 @@ namespace Poo3
     [Serializable()]
     public class Salarie
     {
+        public delegate void ChangementSalaireEventHandler(object sender, ChangementSalaireEventArgs e);
+        public event ChangementSalaireEventHandler ChangementSalaire;
 
         #region Champs privés
 
@@ -26,7 +29,10 @@ namespace Poo3
         private decimal _tauxCS;
         private DateTime _dateNaissance;
         #endregion
-
+        protected virtual void OnChangementSalaire(ChangementSalaireEventArgs e)
+        {
+            ChangementSalaire?.Invoke(this, e);
+        }
        
         #region Propriétés
         /// <summary>
@@ -81,16 +87,18 @@ namespace Poo3
             get { return (this._salaireBrut); }
             set
             {
-                decimal ancienSalaire = _salaireBrut;
+                  if (_salaireBrut !=0 && _salaireBrut!= value)
+                {
+                    OnChangementSalaire(new ChangementSalaireEventArgs(this._salaireBrut, value));
+                    
+                }
                 this._salaireBrut = value;
-               
-               
-
             }
 
         }
+        
+        
 
-       
         /// <summary>
         /// Taux de charges sociales affecté
         /// Ne peut excéder 0.6
@@ -134,8 +142,7 @@ namespace Poo3
         {
             get { return this._salaireBrut * (1 - this._tauxCS); }
         }
-
-        #endregion
+        
 
         #region Méthodes 
 
@@ -295,4 +302,4 @@ namespace Poo3
     }
 
 }
-
+#endregion

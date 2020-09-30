@@ -18,9 +18,9 @@ namespace TestPoo2
             //TestCreateFile();
             //Polymorphe1();
 
-            
+
         }
-            
+
         static void Polymorphe1()
         {
             Salarie sal1 = new Salarie("Bost", "Vincent", "96AAA11");
@@ -46,6 +46,7 @@ namespace TestPoo2
                 Nom = "bosti",
                 Prenom = "Vincente",
                 DateNaissance = new DateTime(1962, 01, 14)
+              
             });
             Salarie sal3 = new Salarie()
             {
@@ -53,51 +54,54 @@ namespace TestPoo2
                 Nom = "bosti",
                 Prenom = "Vincente",
                 DateNaissance = new DateTime(1962, 01, 14)
-
+             
             };
-            salaries.Add(sal3);
+            
+
             // salaries.SaveXML(salaries, "");
             // salaries.SaveTexte("");
             //salaries.SaveBinary(salaries,"");
-            salaries.SaveJson(salaries, "");
-            Salaries listeRetour = new Salaries();
+            // salaries.SaveJson(salaries, "");
+            // Salaries listeRetour = new Salaries();
             //listeRetour.LoadBinary("");
             //listeRetour.LoadXML(salaries, "");
             //listeRetour.LoadTexte("");
-           // listeRetour.LoadJson(salaries, "");
-           
-          foreach(Salarie item in listeRetour)
-          {
-              Debug.WriteLine(item);
-          }
-        }
-       
-                    /// <summary>
-                    /// Test Creation Fichier
-                    /// </summary>
-                    //static void TestCreateFile()
-                    //{
+        }   // listeRetour.LoadJson(salaries, "");
 
-                    //    string path = @"c:\Windows\temp\MyTest.txt";
-                    //    if (!File.Exists(path))
-                    // {
-                    //        StreamWriter sw = File.CreateText(path);
+      
 
-                    //            sw.WriteLine ("Bonjour");
-                    //            sw.WriteLine ("Salut");
-                    //        sw.Close();
-                    //        sw.Dispose();
+        //  foreach(Salarie item in listeRetour)
+        //  {
+        //      Debug.WriteLine(item);
+        //  }
+        //}
+
+        /// <summary>
+        /// Test Creation Fichier
+        /// </summary>
+        //static void TestCreateFile()
+        //{
+
+        //    string path = @"c:\Windows\temp\MyTest.txt";
+        //    if (!File.Exists(path))
+        // {
+        //        StreamWriter sw = File.CreateText(path);
+
+        //            sw.WriteLine ("Bonjour");
+        //            sw.WriteLine ("Salut");
+        //        sw.Close();
+        //        sw.Dispose();
 
 
-                    // }
-                    //    using (StreamReader sr = File.OpenText(path))
-                    //    {
-                    //        string s = "";
-                    //        while ((s = sr.ReadLine()) != null)
-                    //        {
-                    //            Console.WriteLine(s);
-                    //        }
-                    //    }
+        // }
+        //    using (StreamReader sr = File.OpenText(path))
+        //    {
+        //        string s = "";
+        //        while ((s = sr.ReadLine()) != null)
+        //        {
+        //            Console.WriteLine(s);
+        //        }
+        //    }
 
-                }
+    }           
 }

@@ -79,7 +79,7 @@ namespace Poo3
             }
 
         }
-
+        #region Serialisation
         public void SaveTexte(string path)
         {
             path = @"c:\Windows\temp\Salarie.txt";
@@ -89,7 +89,7 @@ namespace Poo3
                 {
                     foreach (Salarie item in this)
                     {
-                      sw.WriteLine(item.ToString());
+                        sw.WriteLine(item.ToString());
                     }
                     sw.Dispose();
                     sw.Close();
@@ -110,7 +110,7 @@ namespace Poo3
                         Debug.WriteLine(result[i]);
                     }
 
-                    
+
                 }
                 sr.Close();
                 sr.Dispose();
@@ -144,7 +144,7 @@ namespace Poo3
             fs.Dispose();
 
         }
-        public void LoadXML (Salaries listsalaries, string filepath)
+        public void LoadXML(Salaries listsalaries, string filepath)
         {
             filepath = @"c:\Windows\temp\SalarieXML.xml";
             FileStream fs = File.OpenRead(filepath);
@@ -162,21 +162,19 @@ namespace Poo3
             {
                 j.Serialize(writer, listsalaries);
             }
-            
+
         }
-        public void LoadJson (Salaries listsalaries, string filepath)
+        public void LoadJson(Salaries listsalaries, string filepath)
         {
             filepath = @"c:\Windows\temp\SalarieJson.txt";
             using (StreamReader file = File.OpenText(filepath))
             {
                 JsonSerializer j = new JsonSerializer();
                 this.AddRange(j.Deserialize(file, typeof(Salaries)) as Salaries);
-                
             }
-
-
         }
-        
-        
-    }   
+        #endregion
+       
+
+    }
 }
