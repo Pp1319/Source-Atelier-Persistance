@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography.X509Certificates;
 //using System.Linq;
@@ -35,6 +36,7 @@ namespace Poo3
             if (!trouve)
             {
                 base.Add(salarie);
+
             }
         }
         /// <summary>
@@ -46,8 +48,16 @@ namespace Poo3
             if (!this.Contains(salarie))
             {
                 base.Add(salarie);
+                
+            }
+            else
+            {
+                throw new SalarieException();
             }
         }
+     
+
+
         public Salarie Extraire(string matricule)
         {
             foreach (Salarie item in this)
